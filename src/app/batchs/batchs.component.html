@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon style="display: inline-block;" name="arrow-back" style="font-size: 50px;" (click)="backClicked()"></ion-icon>
+    <ion-title style="display: inline-block;">
+      Lotes disponibles
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding id="page2">
+  <div style="text-align:center;">
+    <p style="color:#000000;">
+      Agregue una cantidad y precio de los lotes disponibles.
+    </p>
+
+    <div *ngIf="batchs.length === 0">
+      <br>
+      <p style="color: red;">
+        No tienes lotes disponibles de este producto.
+      </p>
+    </div>
+  </div>
+
+  <ion-list *ngFor="let item of batchs; let i = index">
+    <ion-item color="none">
+      #{{item.batch}}  Disponible: {{item.quantity}} <hr/>
+      <ion-button style="width: 100%;" size="small" (click)="addItem(item, i)">Añadir a la venta</ion-button>
+    </ion-item>
+    <ion-item>
+      Cantidad: 
+      <ion-input type="number" min="0" [(ngModel)]="item.amountSell" placeholder="Ingrese cantidad a vender"></ion-input>
+    </ion-item>
+    <ion-item>
+      Precio: $
+      <ion-input type="number" min="0" [(ngModel)]="item.price" placeholder="Ingrese precio a vender"></ion-input>
+      <br/>
+    </ion-item>
+  </ion-list>
+</ion-content>

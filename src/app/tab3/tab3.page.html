@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <h3 style="font-weight:400;">
+          Listado de productos
+      </h3>
+      <p style="font-size: 12px;">
+        Seleccionar un producto para ver sus lotes disponibles.
+      </p>
+
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding id="page4">
+  
+  <ion-list *ngFor="let item of products; let i = index">
+    <ion-item color="none" on-click="goToBatchs(item)" class="item">
+      <ion-icon name="arrow-dropright" item-left></ion-icon>
+      {{item.name}}, {{item.description}}, {{item.variety}}, {{item.colour}}.
+      <br/>
+    </ion-item>
+  </ion-list>
+</ion-content>
